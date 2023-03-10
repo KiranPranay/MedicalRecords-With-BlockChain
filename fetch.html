@@ -205,7 +205,7 @@
                         <label for="name">Your Name</label>
                       </div>
                     </div> -->
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-floating">
                       <input
                         type="text"
@@ -217,15 +217,20 @@
                     </div>
                   </div>
 
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <textarea
-                        class="form-control"
-                        placeholder="Leave a message here"
-                        id="result"
-                        style="height: 150px"
-                      ></textarea>
-                      <label for="message">description</label>
+                  <!-- print name , hosptital name and description  -->
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">Name: <b id="pname"></b></h6>
+                      <h6 class="mb-0">
+                        Hospital Name:
+                        <b id="hname"></b>
+                      </h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Medical Records:
+                        <b id="hdes"></b>
+                      </h6>
                     </div>
                   </div>
                   <div class="col-12">

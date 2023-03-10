@@ -3,11 +3,6 @@ const { abi, address } = require("./contractArtifacts");
 
 let contract = new web3.eth.Contract(JSON.parse(abi), address);
 
-async function getUser(userId) {
-  const users = await contract.methods.getUser(userId).call();
-  return users;
-}
-
 async function addUser(userId, username, password, description) {
   await contract.methods
     .addUser(userId, username, password, description)
@@ -19,14 +14,16 @@ async function addUser(userId, username, password, description) {
 }
 
 window.addEventListener("load", () => {
-  document.getElementById("fetchdata"),
+  document.getElementById("adddata"),
     (onclick = () => {
-      // generate random id
-      const userId = document.getElementById("userId").value;
-      getUser(userId).then((r) => {
-        document.getElementById("pname").innerHTML = r["0"];
-        document.getElementById("hname").innerHTML = r["1"];
-        document.getElementById("hdes").innerHTML = r["2"];
+      //   generate random id
+      const userId = Math.floor(Math.random() * 100000);
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const description = document.getElementById("description").value;
+      addUser(userId, username, password, description).then((r) => {
+        const confirmtxt = "Data added successfully with id: " + userId;
+        document.getElementById("confirmtxt").innerHTML = confirmtxt;
       });
     });
 });
