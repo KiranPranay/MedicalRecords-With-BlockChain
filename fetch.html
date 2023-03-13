@@ -181,7 +181,7 @@
                       <input
                         type="text"
                         class="form-control"
-                        id="userId"
+                        id="recordId"
                         placeholder="Your Name"
                       />
                       <label for="text">User Id</label>
@@ -189,18 +189,64 @@
                   </div>
 
                   <!-- print name , hosptital name and description  -->
+
                   <div class="row g-3">
+                     <!-- patientName  -->
                     <div class="col-sm-6">
-                      <h6 class="mb-3">Name: <b id="pname"></b></h6>
+                      <h6 class="mb-3">Patient Name: <b id="patientName"></b></h6>
                       <h6 class="mb-0">
-                        Hospital Name:
-                        <b id="hname"></b>
+                        Doctor Name:
+                        <b id="doctorName"></b>
                       </h6>
                     </div>
+                    <!-- hospitalName  -->
                     <div class="col-sm-6">
                       <h6 class="mb-3">
-                        Medical Records:
-                        <b id="hdes"></b>
+                        Hospital Name:
+                        <b id="hospitalName"></b>
+                      </h6>
+                    </div>
+                    <!-- year and date  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">Year: <b id="year"></b></h6>
+                      <h6 class="mb-0">
+                        Date:
+                        <b id="date"></b>
+                      </h6>
+                    </div>
+                    <!-- Vital Statistics  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Vital Statistics:
+                        <b id="vitalStatistics"></b>
+                      </h6>
+                    </div>
+                    <!-- Symptoms  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Symptoms:
+                        <b id="symptoms"></b>
+                      </h6>
+                    </div>
+                    <!-- Treatment  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Treatment:
+                        <b id="treatment"></b>
+                      </h6>
+                    </div>
+                    <!-- nextCheckupDate  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Next Checkup Date:
+                        <b id="nextCheckupDate"></b>
+                      </h6>
+                    </div>
+                    <!-- Extra Note  -->
+                    <div class="col-sm-6">
+                      <h6 class="mb-3">
+                        Extra Note:
+                        <b id="extraNote"></b>
                       </h6>
                     </div>
                   </div>
@@ -369,6 +415,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="bundle.js"></script>
+    <script src="fetchbundle.js"></script>
   </body>
 </html>

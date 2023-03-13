@@ -9,47 +9,45 @@ let contract = new web3.eth.Contract(JSON.parse(abi), address);
 
 // }
 
-async function getUser(userId) {
-  const users = await contract.methods.getUser(userId).call();
-  console.log(users);
+async function getRecord(recordId) {
+  const record = await contract.methods.getRecord(recordId).call();
+  console.log(record);
+  return record;
 }
 
-async function addUser(userId, username, password, description) {
+async function addRecord(
+  recordId,
+  patientName,
+  hospitalName,
+  doctorName,
+  year,
+  date,
+  vitalStatistics,
+  symptoms,
+  treatment,
+  nextCheckupDate,
+  extraNote
+) {
   await contract.methods
-    .addUser(userId, username, password, description)
+    .addRecord(
+      recordId,
+      patientName,
+      hospitalName,
+      doctorName,
+      year,
+      date,
+      vitalStatistics,
+      symptoms,
+      treatment,
+      nextCheckupDate,
+      extraNote
+    )
     .send({ from: myAccount.address, gas: 800000 })
     .on("receipt", (receipt) => {
       console.log(receipt);
+      return receipt;
     });
 }
 
-// addUser("123456789", "tehghgffgst", "tfygbfhbghggest", "tefyhjhjst");
-getUser("625");
-
-// add event listener to button to call addUser function on click event
-
-// window.addEventListener("load", () => {
-//   document.getElementById("addUser").addEventListener("click", () => {
-// const userId = document.getElementById("userId").value;
-// generate random id
-// const userId = Math.floor(Math.random() * 1000000000000000000);
-// const username = document.getElementById("username").value;
-// const password = document.getElementById("password").value;
-// const description = document.getElementById("description").value;
-
-// addUser(userId, username, password, description);
-// on receipt, clear the form fields
-//   document.getElementById("username").value = "";
-//   document.getElementById("password").value = "";
-//   document.getElementById("description").value = "";
-//   alert("User added successfully with id: " + userId + "Success!");
-// });
-// document.getElementById("getUser").addEventListener("click", () => {
-//   const userId = document.getElementById("userId").value;
-// await getUser(userId);
-// store result in a variable and display it in the html
-//     result = getUser(userId);
-//     alert("User found with id: " + userId + "Success!");
-//     document.getElementById("result").innerHTML = result;
-//   });
-// });
+// addRecord("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11");
+// getRecord("19577");

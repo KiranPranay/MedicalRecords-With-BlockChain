@@ -52,6 +52,19 @@ window.addEventListener("load", () => {
       const treatment = document.getElementById("treatment").value;
       const nextCheckupDate = document.getElementById("nextCheckupDate").value;
       const extraNote = document.getElementById("extraNote").value;
+      console.log(
+        recordId,
+        patientName,
+        hospitalName,
+        doctorName,
+        year,
+        date,
+        vitalStatistics,
+        symptoms,
+        treatment,
+        nextCheckupDate,
+        extraNote
+      );
       addRecord(
         recordId,
         patientName,
