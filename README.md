@@ -21,7 +21,7 @@ To run this project, you will need to have the following software installed on y
 4. Compile the smart contract by running the following command:
 
 ```
-solc Contract.sol --bin --abi --optimize -o build/
+solc contracts/records.sol --bin --abi --optimize -o build/
 ```
 
 5. Deploy the smart contract to Ganache by running the following command:
@@ -30,23 +30,45 @@ solc Contract.sol --bin --abi --optimize -o build/
 node deploy.js
 ```
 
-6. Install the required packages by running the following command:
+Note: Before deploying the contract, make sure to update the private key in utils.js (const privateKey = "";) with the private key of your account in Ganache.
+
+6. After successful deployment, copy the contract address displayed in the console (contractAddress: '0x...').
+
+7. Update the contract address in contractArtifacts.js by replacing the empty address field (address: ``) with the copied contract address.
+
+8. Install the required packages by running the following command:
 
 ```
 npm install
 ```
 
-7. Bundle the interact.js file using browserify by running the following command:
+9. Bundle the upload.js and fetch.js file using browserify by running the following command:
 
 ```
-browserify interact.js -o bundle.js
+browserify upload.js -o uploadbundle.js
+```
+
+```
+browserify fetch.js -o fetchbundle.js
+```
+
+10. If not already installed, install the http-server package by running the following command:
+
+```
+npm install -g http-server
 ```
 
 ### Usage
 
-Once the project is installed and running, you can access the website by visiting `http://localhost/` in your web browser. The website allows users to enter their medical records and store them on the Ganache blockchain.
+1. Start the http-server by running the following command in the project directory:
 
-To execute the functions in interact.js, make sure to include bundle.js in your frontend code.
+```
+http-server
+```
+
+2. Open a web browser and go to http://localhost:8080/.
+3. Double-click on index.html to launch the website.
+4. Enter medical records and store them on the Ganache blockchain.
 
 ## Built With
 
@@ -57,7 +79,7 @@ To execute the functions in interact.js, make sure to include bundle.js in your 
 
 ## Authors
 
-- [Your Name](https://github.com/kiranpranay)
+- [kiranpranay](https://github.com/kiranpranay)
 
 ## License
 
