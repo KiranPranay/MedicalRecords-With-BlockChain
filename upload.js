@@ -78,7 +78,8 @@ window.addEventListener("load", () => {
         nextCheckupDate,
         extraNote
       ).then((r) => {
-        const confirmtxt = "Data added successfully with id: " + recordId;
+        const confirmtxt =
+          "Data added successfully with patient id: " + recordId;
         document.getElementById("confirmtxt").innerHTML = confirmtxt;
       });
     });
