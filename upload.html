@@ -80,10 +80,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-              <a href="index.html" class="nav-item nav-link">Home</a>
-              <a href="about.html" class="nav-item nav-link">About</a>
-              <a href="upload.html" class="nav-item nav-link active">Upload</a>
-              <a href="fetch.html" class="nav-item nav-link">Fetch</a>
+              <a href="index" class="nav-item nav-link">Home</a>
+              <a href="about" class="nav-item nav-link">About</a>
+              <a href="upload" class="nav-item nav-link active">Upload</a>
+              <a href="fetch" class="nav-item nav-link">Fetch</a>
                 
           </div>
         </nav>
@@ -167,14 +167,29 @@
                   id="confirmtxt"
                 ></h5>
               </div>
+              <form method="post" action="submitrecord.php">
               <div class="wow fadeInUp" data-wow-delay="0.3s">
                 <div class="row g-3">
+                  <div class="col-md-12">
+                    <div class="form-floating">
+                      <input
+                        type="number"
+                        minlength="10"
+                        class="form-control"
+                        id="patientId"
+                        name="patientId"
+                        placeholder="Patient Id"
+                      />
+                      <label for="text">Patient Id</label>
+                    </div>
+                  </div>
                   <div class="col-md-12">
                     <div class="form-floating">
                       <input
                         type="text"
                         class="form-control"
                         id="patientName"
+                        name="patientName"
                         placeholder="Your Name"
                       />
                       <label for="text">Patient Name</label>
@@ -186,6 +201,7 @@
                         type="text"
                         class="form-control"
                         id="hospitalName"
+                        name="hospitalName"
                         placeholder="Subject"
                       />
                       <label for="subject">Hospital Name</label>
@@ -197,30 +213,20 @@
                         type="text"
                         class="form-control"
                         id="doctorName"
+                        name="doctorName"
                         placeholder="Subject"
                       />
                       <label for="subject">Doctor Name</label>
-                    </div>
-                  </div>
-                  <!-- year  -->
-                  <div class="col-12">
-                    <div class="form-floating">
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="year"
-                        placeholder="Subject"
-                      />
-                      <label for="subject">Year (YYYY)</label>
                     </div>
                   </div>
                   <!-- date  -->
                   <div class="col-12">
                     <div class="form-floating">
                       <input
-                        type="number"
+                        type="date"
                         class="form-control"
                         id="date"
+                        name="date"
                         placeholder="Subject"
                       />
                       <label for="subject">Date (DDMMYY)</label>
@@ -233,6 +239,7 @@
                         type="text"
                         class="form-control"
                         id="vitalStatistics"
+                        name="vitalStatistics"
                         placeholder="Subject"
                       />
                       <label for="subject">Vital Statistics</label>
@@ -245,6 +252,7 @@
                         type="text"
                         class="form-control"
                         id="symptoms"
+                        name="symptoms"
                         placeholder="Subject"
                       />
                       <label for="subject">Symptoms</label>
@@ -257,6 +265,7 @@
                         type="text"
                         class="form-control"
                         id="treatment"
+                        name="treatment"
                         placeholder="Subject"
                       />
                       <label for="subject">Treatment</label>
@@ -266,9 +275,10 @@
                   <div class="col-12">
                     <div class="form-floating">
                       <input
-                        type="number"
+                        type="date"
                         class="form-control"
                         id="nextCheckupDate"
+                        name="nextCheckupDate"
                         placeholder="Subject"
                       />
                       <label for="subject">Next Checkup Date (DDMMYY)</label>
@@ -281,6 +291,7 @@
                         class="form-control"
                         placeholder="Leave a message here"
                         id="extraNote"
+                        name="extraNote"
                         style="height: 150px"
                       ></textarea>
                       <label for="subject">Extra Note</label>
@@ -288,11 +299,12 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary w-100 py-3" id="adddata">
+                  <button class="btn btn-primary w-100 py-3" type="submit" name="submit" id="adddata">
                     Add Records
                   </button>
                 </div>
               </div>
+              </form>
             </div>
           </div>
         </div>
@@ -460,5 +472,19 @@
           });
       });
     </script> -->
+    <script >
+
+     // validate #patientId with minimum 10 digits  on click #adddata
+      document.getElementById("addata").addEventListener("click", function (event) {
+        event.preventDefault();
+        var patientId = document.getElementById("patientId").value;
+        if (patientId.length == 10) {
+          alert("Please enter valid patient ID");
+        } else {
+          alert("Patient ID is valid");
+        }
+      });
+     
+    </script>
   </body>
 </html>
