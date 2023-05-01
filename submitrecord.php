@@ -19,7 +19,13 @@ if ($conn->connect_error) {
 
 // get the value from the form
 if(isset($_POST['submit'])) {
+
     $patientId=$_POST['patientId'];
+    // check if the patientId is 10 digits
+    if(strlen($patientId) != 10){
+        echo "Patient ID should be 10 digits";
+        exit();
+    }
     $patientName=$_POST['patientName'];
     $hospitalName=$_POST['hospitalName'];
     $doctorName=$_POST['doctorName'];
@@ -72,6 +78,7 @@ if(isset($_POST['submit'])) {
 
 
     </form>
+    <h1>Record Added Successfully</h1>
 
     <script src="uploadbundle.js"></script>
 
@@ -81,6 +88,8 @@ if(isset($_POST['submit'])) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
+}else{
+    echo "No data received";
 }
 
 // Close the connection

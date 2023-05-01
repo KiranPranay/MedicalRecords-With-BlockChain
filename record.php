@@ -28,7 +28,7 @@ if(isset($_GET['recordId'])){
 
 <head>
     <meta charset="utf-8" />
-    <title>Upload</title>
+    <title>Record</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
